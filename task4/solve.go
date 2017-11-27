@@ -1,7 +1,7 @@
 package main
 
 import 	(
-//	"fmt"
+	//"fmt"
 	"unicode"
 	"strings"
 )
@@ -31,10 +31,9 @@ func DifferentWordsCount(str string) (count int) {
 		if unicode.IsLetter(value) {
 			word += string(value)
 		} else if word != "" {
-			if _, ok := words[word]; ok {
-				count += 1
-			} else {
+			if _, ok := words[word]; !ok {
 				words[word] = true
+				count += 1
 			}
 			word = ""
 		}
@@ -42,6 +41,6 @@ func DifferentWordsCount(str string) (count int) {
 	return 
 }
 
-// func main() {
-// 	fmt.Println(DifferentWordsCount("Hello, world!HELLO  wOrlD...12"))
-// }
+//  func main() {
+//  	fmt.Println(DifferentWordsCount("Hello, world!HELLO  wOrlD...12"))
+//  }
